@@ -6,10 +6,6 @@
       <option>3</option>
     </select>
 
-    <!-- <div>
-      {{ currentTabComponent.type }}
-    </div> -->
-
     <component v-if="currentTabComponent" :is="currentTabComponent" v-bind="props" class="tab"></component>
   </div>
 </template>
@@ -35,7 +31,7 @@ export default {
         const type = `type${this.select}`;
         const selectedConfig = configs.find(config => config.type === type);
 
-        return selectedConfig?.props[0].componentProps;
+        return selectedConfig?.props?.[0]?.componentProps || [];
       }
   },
 }
