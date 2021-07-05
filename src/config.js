@@ -6,6 +6,16 @@ export const configs = [
     {
         type: 'type1',
         component: HelloWorld,
+        props: [
+            {
+                key: 'label',
+                type: 'type2', 
+                
+                componentProps: {
+                    msg: 'Field message',
+                }
+            }
+        ],
     },
     {
         type: 'type2',

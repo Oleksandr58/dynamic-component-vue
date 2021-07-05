@@ -10,7 +10,7 @@
       {{ currentTabComponent.type }}
     </div> -->
 
-    <component v-if="currentTabComponent" :is="currentTabComponent" class="tab"></component>
+    <component v-if="currentTabComponent" :is="currentTabComponent" v-bind="props" class="tab"></component>
   </div>
 </template>
 
@@ -31,6 +31,12 @@ export default {
 
         return selectedConfig?.component;
       },
+      props() {
+        const type = `type${this.select}`;
+        const selectedConfig = configs.find(config => config.type === type);
+
+        return selectedConfig?.props[0].componentProps;
+      }
   },
 }
 </script>
