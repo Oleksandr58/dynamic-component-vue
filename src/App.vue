@@ -11,7 +11,7 @@
         :is="currentTabComponent" 
         v-bind="props" 
         v-model="model"
-    ></component>
+    />
 
     <div>
       Model: {{ model }}
