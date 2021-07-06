@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="hello" @click="emit">
     COMPONENT 3 {{ msg }}
   </div>
 </template>
@@ -9,7 +9,12 @@ export default {
   name: 'HelloWorld2',
   props: {
     msg: String
-  }
+  },
+  methods: {
+    emit() {
+      this.$emit('input', 'test');
+    }
+  },
 }
 </script>
 

@@ -1,12 +1,21 @@
 <template>
   <div id="app">
     <select v-model="select">
-      <option>1</option>
+      <option>1-1</option>
+      <option>1-2</option>
       <option>2</option>
       <option>3</option>
     </select>
 
-    <component v-if="currentTabComponent" :is="currentTabComponent" v-bind="props" class="tab"></component>
+    <component v-if="currentTabComponent" 
+        :is="currentTabComponent" 
+        v-bind="props" 
+        v-model="model"
+    ></component>
+
+    <div>
+      Model: {{ model }}
+    </div>
   </div>
 </template>
 
@@ -18,6 +27,7 @@ export default {
   data() {
     return {
       select: '',
+      model: '',
     };
   },
   computed: {
