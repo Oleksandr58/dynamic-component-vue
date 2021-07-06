@@ -7,14 +7,20 @@
       <option>3</option>
     </select>
 
+    <br />
+    <br />
+    
     <component v-if="currentTabComponent" 
         :is="currentTabComponent" 
         v-bind="props" 
         v-model="model"
+        class="tab"
     />
 
+    <br />
+
     <div>
-      Model: {{ model }}
+      Model: <span class="model-value">{{ model }}</span>
     </div>
   </div>
 </template>
@@ -53,5 +59,20 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.tab {
+  cursor: pointer;
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 15px;
+}
+
+.tab:hover {
+    background: gray;
+}
+
+.model-value {
+  color: red;
 }
 </style>
