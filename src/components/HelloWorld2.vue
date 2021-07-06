@@ -12,7 +12,7 @@ export default {
   },
   methods: {
     emit() {
-      this.$emit('input', 'test');
+      this.$emit('input', 'component 3 model');
     }
   },
 }

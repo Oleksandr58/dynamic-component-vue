@@ -31,17 +31,15 @@ export default {
     };
   },
   computed: {
-      currentTabComponent() {
+      selectedConfig() {
         const type = `type${this.select}`;
-        const selectedConfig = configs.find(config => config.type === type);
-
-        return selectedConfig?.component;
+        return configs.find(config => config.type === type) || {};
+      },
+      currentTabComponent() {
+        return this.selectedConfig?.component;
       },
       props() {
-        const type = `type${this.select}`;
-        const selectedConfig = configs.find(config => config.type === type);
-
-        return selectedConfig?.props?.[0]?.componentProps || [];
+        return this.selectedConfig?.props?.[0]?.componentProps || [];
       }
   },
 }
